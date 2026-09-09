@@ -15,6 +15,10 @@ const barOptions = {
         "Diagramme en barres montrant la quantité de pingouins par espèce.",
     x: { label: "Espèce" },
     y: { label: "↑ Nombre d'individus" },
+    color: {
+        domain: ["Adelie", "Gentoo", "Chinstrap"],
+        range: ["#570df8", "#f000b8", "#37cdbe"],
+    },
     marks: [
         Plot.barY(
             filteredPenguins,
