@@ -1,0 +1,26 @@
+---
+import PlotFigure from "./PlotFigure.astro";
+import penguins from "../data/penguins.json";
+
+const { species } = Astro.props;
+const filteredPenguins = penguins.filter((p) => p.species === species);
+---
+
+<div class="my-8">
+    <h2 class="text-2xl font-bold mb-4 text-center text-primary">
+        Espèce : {species}
+    </h2>
+    <PlotFigure
+        options={{
+            marks: [
+                {
+                    type: "dot",
+                    data: filteredPenguins,
+                    x: "flipper_length_mm",
+                    y: "body_mass_g",
+                    fill: "species",
+                },
+            ],
+        }}
+    />
+</div>
