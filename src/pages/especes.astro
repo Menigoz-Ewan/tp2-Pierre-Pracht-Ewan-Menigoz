@@ -34,7 +34,24 @@ const barOptions = {
         >
     </div>
 
-    <h1 style="text-align: center; margin-bottom: 2rem;">Espèces</h1>
+    <h1
+        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
+    >
+        Espèces
+    </h1>
+
+    <nav class="flex justify-center gap-6 mb-12">
+        <a href="/species/Adelie" class="btn btn-primary text-primary-content"
+            >Adélie</a
+        >
+        <a href="/species/Gentoo" class="btn btn-primary text-primary-content"
+            >Gentoo</a
+        >
+        <a
+            href="/species/Chinstrap"
+            class="btn btn-primary text-primary-content">Chinstrap</a
+        >
+    </nav>
 
     <figure
         style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"
@@ -44,9 +61,9 @@ const barOptions = {
             style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
         >
             Ce diagramme en barres verticales indique le nombre total
-            d'individus recensés pour chaque espèce de manchots. L'espèce Adelie
-            est la plus représentée, suivie par les Gentoo et enfin les
-            Chinstrap.
+            d'individus recensés pour chaque espèce de manchots. Cliquez sur les
+            boutons ci-dessus pour explorer les caractéristiques de chaque
+            espèce.
         </figcaption>
     </figure>
 
