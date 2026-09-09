@@ -1,21 +1,41 @@
 ---
-import PlotFigure from "../components/PlotFigure.astro";
 import Layout from "../layouts/Layout.astro";
-import * as Plot from "@observablehq/plot";
-import penguins from "../assets/penguins.json";
 ---
 
 <Layout>
-  <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
-  <PlotFigure
-    options={{
-      marks: [
-        Plot.dot(penguins, {
-          x: "culmen_length_mm",
-          y: "culmen_depth_mm",
-          stroke: "species",
-        }),
-      ],
-    }}
-  />
+	<div style="text-align: center; max-width: 700px; margin: 0 auto;">
+		<h1 style="margin-bottom: 1.5rem; color: #243b53;">
+			Analyse des Manchots de Palmer
+		</h1>
+
+		<p
+			style="font-size: 1.1rem; line-height: 1.6; color: #486581; margin-bottom: 2rem;"
+		>
+			Bienvenue sur ce site interactif dédié à l'étude morphométrique des
+			manchots de l'archipel de Palmer en Antarctique. Ce projet explore
+			les relations entre la masse corporelle, la morphologie des
+			nageoires et la répartition géographique des différentes espèces
+			(Adelie, Chinstrap et Gentoo).
+		</p>
+
+		<div
+			style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 3rem; flex-wrap: wrap;"
+		>
+			<a
+				href="/biometrie"
+				style="padding: 0.8rem 1.5rem; background: #3182ce; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+				>Voir la Biométrie</a
+			>
+			<a
+				href="/especes"
+				style="padding: 0.8rem 1.5rem; background: #3182ce; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+				>Répartition par Espèce</a
+			>
+			<a
+				href="/iles"
+				style="padding: 0.8rem 1.5rem; background: #3182ce; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+				>Répartition par Île</a
+			>
+		</div>
+	</div>
 </Layout>

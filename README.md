@@ -1,7 +1,7 @@
 - URL site WEB :
 - URL Notebook Observable :
-- Nom :
-- Prénom :
+- Nom : Menigoz
+- Prénom : Ewan
 - Nom binome :
 - Prénom binome :
 
