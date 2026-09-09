@@ -17,7 +17,11 @@ const scatterOptions = {
         "Nuage de points montrant une corrélation positive entre la masse corporelle et la longueur des nageoires.",
     x: { label: "Masse corporelle (g) →" },
     y: { label: "↑ Longueur des nageoires (mm)" },
-    color: { legend: true },
+    color: {
+        legend: true,
+        domain: ["Adelie", "Chinstrap", "Gentoo"],
+        range: ["#570df8", "#37cdbe", "#f000b8"],
+    },
     marks: [
         Plot.frame(),
         Plot.dot(filteredPenguins, {
@@ -38,7 +42,11 @@ const scatterOptions = {
         >
     </div>
 
-    <h1 style="text-align: center; margin-bottom: 2rem;">Biométrie</h1>
+    <h1
+        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
+    >
+        Biométrie
+    </h1>
 
     <figure
         style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"

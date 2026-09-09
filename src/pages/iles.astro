@@ -23,6 +23,10 @@ const islandOptions = {
     marginLeft: 90,
     x: { label: "Fréquence →" },
     y: { label: null },
+    color: {
+        domain: ["Adelie", "Gentoo", "Chinstrap"],
+        range: ["#570df8", "#f000b8", "#37cdbe"],
+    },
     marks: [
         Plot.barX(
             filteredPenguins,
@@ -42,7 +46,11 @@ const islandOptions = {
         >
     </div>
 
-    <h1 style="text-align: center; margin-bottom: 2rem;">Îles</h1>
+    <h1
+        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
+    >
+        Îles
+    </h1>
 
     <figure
         style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"

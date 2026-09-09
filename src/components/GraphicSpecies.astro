@@ -11,6 +11,10 @@ const plotOptions = {
     grid: true,
     x: { label: "Longueur de la nageoire (mm)" },
     y: { label: "Masse corporelle (g)" },
+    color: {
+        domain: ["Adelie", "Gentoo", "Chinstrap"],
+        range: ["#570df8", "#f000b8", "#37cdbe"],
+    },
     marks: [
         Plot.dot(filteredPenguins, {
             x: "flipper_length_mm",
