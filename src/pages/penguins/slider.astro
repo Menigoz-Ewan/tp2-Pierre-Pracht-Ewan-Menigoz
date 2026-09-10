@@ -25,6 +25,16 @@ import GraphicSpecies from "../../components/GraphicSpecies.astro";
             <GraphicSpecies species="Chinstrap" />
         </section>
     </div>
+
+    <div
+        style="display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
+    >
+        <a
+            href="/penguins/iles"
+            style="text-decoration: none; color: #4a5568; font-weight: bold;"
+            >← Article précédent</a
+        >
+    </div>
 </Layout>
 
 <script>
@@ -56,6 +66,7 @@ import GraphicSpecies from "../../components/GraphicSpecies.astro";
 </script>
 
 <style>
+    @reference "../../styles/global.css";
     .menu-item.active {
         @apply bg-primary text-primary-content outline-primary;
     }
