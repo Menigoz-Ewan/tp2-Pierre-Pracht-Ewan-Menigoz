@@ -19,8 +19,12 @@ import "../styles/global.css";
 
 			body {
 				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-				background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
-				color: #334e68;
+				background: linear-gradient(
+					135deg,
+					var(--color-base-200) 0%,
+					var(--color-base-300) 100%
+				);
+				color: var(--color-base-content);
 				overflow-x: hidden;
 				display: flex;
 				flex-direction: column;
@@ -30,8 +34,12 @@ import "../styles/global.css";
 			.shape {
 				position: fixed;
 				border-radius: 50%;
-				background: linear-gradient(135deg, #84c5f4 0%, #f8c8d4 100%);
-				opacity: 0.5;
+				background: linear-gradient(
+					135deg,
+					var(--color-primary) 0%,
+					var(--color-secondary) 100%
+				);
+				opacity: 0.15;
 				z-index: -1;
 				animation: float 8s ease-in-out infinite;
 			}
@@ -67,9 +75,9 @@ import "../styles/global.css";
 				max-width: 900px;
 				margin: 3rem auto;
 				padding: 2.5rem;
-				background: rgba(255, 255, 255, 0.95);
+				background: var(--color-base-100);
 				border-radius: 20px;
-				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 				width: 90%;
 				box-sizing: border-box;
 				flex: 1;

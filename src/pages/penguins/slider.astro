@@ -4,6 +4,14 @@ import GraphicSpecies from "../../components/GraphicSpecies.astro";
 ---
 
 <Layout>
+    <div class="breadcrumbs text-sm mb-6">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/penguins">Pingouins</a></li>
+            <li>Slider</li>
+        </ul>
+    </div>
+
     <h1 class="text-3xl font-extrabold text-center mb-8">
         Graphiques par espèce
     </h1>
@@ -26,22 +34,16 @@ import GraphicSpecies from "../../components/GraphicSpecies.astro";
         </section>
     </div>
 
-    <div
-        style="display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
-    >
-        <a
-            href="/penguins/iles"
-            style="text-decoration: none; color: #4a5568; font-weight: bold;"
-            >← Article précédent</a
-        >
+    <div class="divider my-8"></div>
+
+    <div class="flex justify-start">
+        <a href="/penguins/iles" class="btn btn-outline btn-sm">← Îles</a>
     </div>
 </Layout>
 
 <script>
     const menuItems = document.querySelectorAll(".menu-item");
     const items = document.querySelectorAll(".item");
-    console.log("menuItems", menuItems);
-    console.log("items", items);
 
     const observer = new IntersectionObserver(
         (entries) => {

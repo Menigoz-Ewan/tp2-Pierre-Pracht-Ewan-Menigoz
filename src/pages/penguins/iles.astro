@@ -38,46 +38,32 @@ const islandOptions = {
 ---
 
 <Layout>
-    <div style="margin-bottom: 1.5rem;">
-        <a
-            href="/"
-            style="text-decoration: none; color: #3182ce; font-weight: bold; font-size: 0.95rem;"
-            >← Retour à la page d'accueil</a
-        >
+    <div class="breadcrumbs text-sm mb-6">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/penguins">Pingouins</a></li>
+            <li>Îles</li>
+        </ul>
     </div>
 
-    <h1
-        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
-    >
-        Îles
-    </h1>
+    <h1 class="text-center mb-8 text-3xl font-extrabold">Îles</h1>
 
-    <figure
-        style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"
-    >
+    <figure class="flex flex-col items-center gap-4">
         <PlotFigure options={islandOptions} />
         <figcaption
-            style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
+            class="max-w-2xl text-center text-sm opacity-80 leading-relaxed"
         >
-            Ce diagramme en barres horizontales présente la fréquence des
-            observations par catégorie. Chaque barre est segmentée par des
-            couleurs pour refléter la composition et la répartition des
-            différentes espèces au sein de chaque groupe.
+            Ce diagramme en barres horizontales présente la répartition des
+            espèces au sein de chaque île.
         </figcaption>
     </figure>
 
-    <div
-        style="display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
-    >
-        <a
-            href="/penguins/especes"
-            style="text-decoration: none; color: #4a5568; font-weight: bold;"
-            >← Article précédent</a
-        >
-        <a
-            href="/penguins/slider"
-            style="text-decoration: none; color: #3182ce; font-weight: bold;"
-            >Article suivant →</a
+    <div class="divider my-8"></div>
+
+    <div class="flex justify-between">
+        <a href="/penguins/especes" class="btn btn-outline btn-sm">← Espèces</a>
+        <a href="/penguins/slider" class="btn btn-outline btn-primary btn-sm"
+            >Slider →</a
         >
     </div>
 </Layout>

@@ -4,6 +4,17 @@ import PlotFigure from "../../components/PlotFigure.astro";
 import pizzasData from "../../data/pizzas.json";
 import Layout from "../../layouts/Layout.astro";
 
+const categoriesTraduction: Record<string, string> = {
+    Classic: "Classique",
+    Specialty: "Spéciale",
+    Vegetarian: "Végétarienne",
+};
+
+const translatedPizzas = pizzasData.map((d) => ({
+    ...d,
+    categoryFr: categoriesTraduction[d.category] ?? d.category,
+}));
+
 const revenusOptions = {
     title: "Revenu total par catégorie",
     subtitle: "Cumul des revenus en dollars par type de pizza",
@@ -12,15 +23,15 @@ const revenusOptions = {
     x: { label: "Catégorie" },
     y: { label: "↑ Revenu total ($)" },
     color: {
-        domain: ["Classic", "Specialty", "Vegetarian"],
+        domain: ["Classique", "Spéciale", "Végétarienne"],
         range: ["#570df8", "#f000b8", "#37cdbe"],
     },
     marks: [
         Plot.barY(
-            pizzasData,
+            translatedPizzas,
             Plot.groupX(
                 { y: "sum" },
-                { x: "category", y: "revenue", fill: "category" },
+                { x: "categoryFr", y: "revenue", fill: "categoryFr" },
             ),
         ),
         Plot.ruleY([0]),
@@ -29,40 +40,33 @@ const revenusOptions = {
 ---
 
 <Layout>
-    <div style="margin-bottom: 1.5rem;">
-        <a
-            href="/pizzas"
-            style="text-decoration: none; color: #3182ce; font-weight: bold; font-size: 0.95rem;"
-            >← Retour aux Pizzas</a
-        >
+    <div class="breadcrumbs text-sm mb-6">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/pizzas">Pizzas</a></li>
+            <li>Revenus</li>
+        </ul>
     </div>
 
-    <h1
-        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
-    >
+    <h1 class="text-center mb-8 text-3xl font-extrabold">
         Revenus par catégorie
     </h1>
 
-    <figure
-        style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"
-    >
+    <figure class="flex flex-col items-center gap-4">
         <PlotFigure options={revenusOptions} />
         <figcaption
-            style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
+            class="max-w-2xl text-center text-sm opacity-80 leading-relaxed"
         >
             Ce diagramme montre le revenu total cumulé pour chaque catégorie de
-            pizza sur l'année 2020. Chaque barre représente la somme de tous les
-            revenus générés par les pizzas de cette catégorie.
+            pizza sur l'année 2020.
         </figcaption>
     </figure>
 
-    <div
-        style="display: flex; justify-content: flex-end; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
-    >
-        <a
-            href="/pizzas/jours"
-            style="text-decoration: none; color: #3182ce; font-weight: bold;"
-            >Article suivant →</a
+    <div class="divider my-8"></div>
+
+    <div class="flex justify-end">
+        <a href="/pizzas/jours" class="btn btn-outline btn-secondary btn-sm"
+            >Commandes par jour →</a
         >
     </div>
 </Layout>

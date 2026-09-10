@@ -3,17 +3,28 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<h1 class="text-3xl font-extrabold text-center mb-2">TP2 Datasets</h1>
-	<p class="text-center text-gray-500 mb-10">
-		Exploration de données avec Astro, Tailwind & Observable Plot
-	</p>
+	<div class="hero mb-8">
+		<div class="hero-content text-center">
+			<div class="max-w-md">
+				<h1 class="text-4xl font-extrabold tracking-tight">
+					DataViz TP2
+				</h1>
+				<p class="py-4 text-base-content/70">
+					Exploration et visualisation interactive de données avec
+					Astro, Tailwind CSS, DaisyUI et Observable Plot.
+				</p>
+			</div>
+		</div>
+	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-		<div class="card bg-base-100 shadow-lg border border-base-200">
+		<div
+			class="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-shadow"
+		>
 			<div class="card-body items-center text-center">
-				<div class="text-5xl mb-2">🐧</div>
-				<h2 class="card-title text-xl">Pingouins</h2>
-				<p class="text-sm text-gray-500">
+				<div class="text-6xl mb-2">🐧</div>
+				<h2 class="card-title text-xl font-bold">Pingouins</h2>
+				<p class="text-sm text-base-content/70">
 					Analyse morphométrique des manchots de l'archipel de Palmer
 					: biométrie, espèces et répartition par île.
 				</p>
@@ -25,13 +36,15 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 		</div>
 
-		<div class="card bg-base-100 shadow-lg border border-base-200">
+		<div
+			class="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-shadow"
+		>
 			<div class="card-body items-center text-center">
-				<div class="text-5xl mb-2">🍕</div>
-				<h2 class="card-title text-xl">Pizzas</h2>
-				<p class="text-sm text-gray-500">
-					Données sur les pizzas : ingrédients, popularité,
-					compositions et comparaisons visuelles.
+				<div class="text-6xl mb-2">🍕</div>
+				<h2 class="card-title text-xl font-bold">Pizzas</h2>
+				<p class="text-sm text-base-content/70">
+					Données sur les commandes : chiffre d'affaires, répartition
+					par jour et impact des tarifs.
 				</p>
 				<div class="card-actions mt-4">
 					<a href="/pizzas" class="btn btn-secondary btn-sm"
@@ -41,13 +54,15 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 		</div>
 
-		<div class="card bg-base-100 shadow-lg border border-base-200">
+		<div
+			class="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-shadow"
+		>
 			<div class="card-body items-center text-center">
-				<div class="text-5xl mb-2">🌤️</div>
-				<h2 class="card-title text-xl">Météo</h2>
-				<p class="text-sm text-gray-500">
-					Visualisation de données météorologiques : températures,
-					précipitations et tendances saisonnières.
+				<div class="text-6xl mb-2">🌤️</div>
+				<h2 class="card-title text-xl font-bold">Météo</h2>
+				<p class="text-sm text-base-content/70">
+					Relevés météorologiques de Seattle : variations de
+					températures, types de ciel et corrélations vent/pluie.
 				</p>
 				<div class="card-actions mt-4">
 					<a href="/weather" class="btn btn-accent btn-sm">Explorer</a

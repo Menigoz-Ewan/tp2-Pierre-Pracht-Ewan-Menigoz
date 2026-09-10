@@ -30,21 +30,17 @@ const barOptions = {
 ---
 
 <Layout>
-    <div style="margin-bottom: 1.5rem;">
-        <a
-            href="/"
-            style="text-decoration: none; color: #3182ce; font-weight: bold; font-size: 0.95rem;"
-            >← Retour à la page d'accueil</a
-        >
+    <div class="breadcrumbs text-sm mb-6">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/penguins">Pingouins</a></li>
+            <li>Espèces</li>
+        </ul>
     </div>
 
-    <h1
-        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
-    >
-        Espèces
-    </h1>
+    <h1 class="text-center mb-6 text-3xl font-extrabold">Espèces</h1>
 
-    <nav class="flex justify-center gap-4 mb-12">
+    <div class="flex justify-center gap-4 mb-8">
         <a href="/penguins/species/Adelie" class="btn btn-sm btn-primary"
             >Adélie</a
         >
@@ -54,34 +50,26 @@ const barOptions = {
         <a href="/penguins/species/Gentoo" class="btn btn-sm btn-secondary"
             >Gentoo</a
         >
-    </nav>
+    </div>
 
-    <figure
-        style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"
-    >
+    <figure class="flex flex-col items-center gap-4">
         <PlotFigure options={barOptions} />
         <figcaption
-            style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
+            class="max-w-2xl text-center text-sm opacity-80 leading-relaxed"
         >
             Ce diagramme en barres verticales indique le nombre total
-            d'individus recensés pour chaque espèce de manchots. Cliquez sur les
-            boutons ci-dessus pour explorer les caractéristiques de chaque
-            espèce.
+            d'individus recensés pour chaque espèce.
         </figcaption>
     </figure>
 
-    <div
-        style="display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
-    >
-        <a
-            href="/penguins/biometrie"
-            style="text-decoration: none; color: #4a5568; font-weight: bold;"
-            >← Article précédent</a
+    <div class="divider my-8"></div>
+
+    <div class="flex justify-between">
+        <a href="/penguins/biometrie" class="btn btn-outline btn-sm"
+            >← Biométrie</a
         >
-        <a
-            href="/penguins/iles"
-            style="text-decoration: none; color: #3182ce; font-weight: bold;"
-            >Article suivant →</a
+        <a href="/penguins/iles" class="btn btn-outline btn-primary btn-sm"
+            >Îles →</a
         >
     </div>
 </Layout>

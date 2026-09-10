@@ -4,13 +4,22 @@ import GraphicSpecies from "../../../components/GraphicSpecies.astro";
 ---
 
 <Layout>
-    <div style="margin-bottom: 1.5rem;">
-        <a
-            href="/penguins/especes"
-            style="text-decoration: none; color: #3182ce; font-weight: bold; font-size: 0.95rem;"
+    <div class="breadcrumbs text-sm mb-6">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/penguins">Pingouins</a></li>
+            <li><a href="/penguins/especes">Espèces</a></li>
+            <li>Adélie</li>
+        </ul>
+    </div>
+
+    <GraphicSpecies species="Chinstrap" />
+
+    <div class="divider my-8"></div>
+
+    <div class="flex justify-start">
+        <a href="/penguins/especes" class="btn btn-outline btn-sm"
+            >← Retour aux espèces</a
         >
-            ← Retour à la page Espèces
-        </a>
-        <GraphicSpecies species="Chinstrap" />
     </div>
 </Layout>

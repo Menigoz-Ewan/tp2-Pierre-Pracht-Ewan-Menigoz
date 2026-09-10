@@ -34,42 +34,32 @@ const scatterOptions = {
 ---
 
 <Layout>
-    <div style="margin-bottom: 1.5rem;">
-        <a
-            href="/"
-            style="text-decoration: none; color: #3182ce; font-weight: bold; font-size: 0.95rem;"
-            >← Retour à la page d'accueil</a
-        >
+    <div class="breadcrumbs text-sm mb-6">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/penguins">Pingouins</a></li>
+            <li>Biométrie</li>
+        </ul>
     </div>
 
-    <h1
-        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
-    >
-        Biométrie
-    </h1>
+    <h1 class="text-center mb-8 text-3xl font-extrabold">Biométrie</h1>
 
-    <figure
-        style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"
-    >
+    <figure class="flex flex-col items-center gap-4">
         <PlotFigure options={scatterOptions} />
         <figcaption
-            style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
+            class="max-w-2xl text-center text-sm opacity-80 leading-relaxed"
         >
             Ce nuage de points met en relation la masse corporelle en grammes
             (axe horizontal) et la longueur des nageoires en millimètres (axe
-            vertical) pour les trois espèces étudiées : Adelie (bleu), Chinstrap
-            (jaune) et Gentoo (rouge). Le graphique met en évidence une
-            corrélation positive globale.
+            vertical).
         </figcaption>
     </figure>
 
-    <div
-        style="display: flex; justify-content: flex-end; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
-    >
-        <a
-            href="/penguins/especes"
-            style="text-decoration: none; color: #3182ce; font-weight: bold;"
-            >Article suivant →</a
+    <div class="divider my-8"></div>
+
+    <div class="flex justify-end">
+        <a href="/penguins/especes" class="btn btn-outline btn-primary btn-sm"
+            >Espèces →</a
         >
     </div>
 </Layout>

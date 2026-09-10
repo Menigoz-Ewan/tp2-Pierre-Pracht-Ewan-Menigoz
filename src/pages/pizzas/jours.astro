@@ -4,20 +4,36 @@ import PlotFigure from "../../components/PlotFigure.astro";
 import pizzasData from "../../data/pizzas.json";
 import Layout from "../../layouts/Layout.astro";
 
+const joursTraduction: Record<string, string> = {
+    Monday: "Lundi",
+    Tuesday: "Mardi",
+    Wednesday: "Mercredi",
+    Thursday: "Jeudi",
+    Friday: "Vendredi",
+    Saturday: "Samedi",
+    Sunday: "Dimanche",
+};
+
 const joursOrdre = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+    "Dimanche",
 ];
+
+const translatedPizzas = pizzasData.map((d) => ({
+    ...d,
+    jourFr: joursTraduction[d.day_of_week] ?? d.day_of_week,
+}));
 
 const joursOptions = {
     title: "Commandes par jour de la semaine",
     subtitle: "Nombre total de commandes selon le jour",
     ariaLabel: "Diagramme en barres des commandes par jour de la semaine.",
+    marginLeft: 80,
     x: {
         label: "Jour de la semaine",
         domain: joursOrdre,
@@ -26,10 +42,10 @@ const joursOptions = {
     color: { scheme: "tableau10" },
     marks: [
         Plot.barY(
-            pizzasData,
+            translatedPizzas,
             Plot.groupX(
                 { y: "sum" },
-                { x: "day_of_week", y: "orders", fill: "day_of_week" },
+                { x: "jourFr", y: "orders", fill: "jourFr" },
             ),
         ),
         Plot.ruleY([0]),
@@ -57,7 +73,7 @@ const joursOptions = {
     >
         <PlotFigure options={joursOptions} />
         <figcaption
-            style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
+            style="max-width: 700px; text-align: center; font-size: 0.95rem; line-height: 1.5;"
         >
             Ce graphique compare le volume total de commandes selon le jour de
             la semaine, permettant d'identifier les jours de pic d'activité dans
