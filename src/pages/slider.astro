@@ -1,10 +1,12 @@
 ﻿---
-import Layout from "../layouts/Layout.astro";
-import GraphicSpecies from "../components/GraphicSpecies.astro";
+import Layout from "../../layouts/Layout.astro";
+import GraphicSpecies from "../../components/GraphicSpecies.astro";
 ---
 
 <Layout>
-    <h1 class="text-3xl font-extrabold text-center mb-8">Graphiques par espèce</h1>
+    <h1 class="text-3xl font-extrabold text-center mb-8">
+        Graphiques par espèce
+    </h1>
 
     <nav class="flex justify-center gap-4 mb-8">
         <a href="#adelie" class="menu-item btn btn-primary">Adélie</a>
@@ -35,7 +37,9 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
         (entries) => {
             entries.forEach((entry) => {
                 const id = entry.target.getAttribute("id");
-                const menuItem = document.querySelector(`.menu-item[href="#${id}"]`);
+                const menuItem = document.querySelector(
+                    `.menu-item[href="#${id}"]`,
+                );
                 if (entry.isIntersecting) {
                     menuItem?.classList.add("active");
                 } else {
