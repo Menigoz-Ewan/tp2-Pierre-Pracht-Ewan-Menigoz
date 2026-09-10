@@ -8,11 +8,12 @@ const revenusOptions = {
     title: "Revenu total par catégorie",
     subtitle: "Cumul des revenus en dollars par type de pizza",
     ariaLabel: "Diagramme en barres des revenus par catégorie de pizza.",
+    marginLeft: 80,
     x: { label: "Catégorie" },
     y: { label: "↑ Revenu total ($)" },
     color: {
-        domain: ["Classic", "Veggie", "Supreme", "Chicken"],
-        range: ["#570df8", "#37cdbe", "#f000b8", "#ffbe00"],
+        domain: ["Classic", "Specialty", "Vegetarian"],
+        range: ["#570df8", "#f000b8", "#37cdbe"],
     },
     marks: [
         Plot.barY(

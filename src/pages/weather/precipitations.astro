@@ -4,6 +4,19 @@ import PlotFigure from "../../components/PlotFigure.astro";
 import weatherData from "../../data/weather.json";
 import Layout from "../../layouts/Layout.astro";
 
+const translations: Record<string, string> = {
+    drizzle: "Bruine",
+    rain: "Pluie",
+    sun: "Soleil",
+    snow: "Neige",
+    fog: "Brouillard",
+};
+
+const translatedData = weatherData.map((d) => ({
+    ...d,
+    weatherFr: translations[d.weather] ?? d.weather,
+}));
+
 const precipOptions = {
     title: "Précipitations vs Vitesse du vent",
     subtitle: "Chaque point = un jour, coloré par type de météo",
@@ -11,15 +24,15 @@ const precipOptions = {
     x: { label: "Précipitations (mm) →" },
     y: { label: "↑ Vent (m/s)" },
     color: {
-        domain: ["drizzle", "rain", "sun", "snow", "fog"],
+        domain: ["Bruine", "Pluie", "Soleil", "Neige", "Brouillard"],
         range: ["#37cdbe", "#570df8", "#ffbe00", "#aaaaaa", "#d1d5db"],
         legend: true,
     },
     marks: [
-        Plot.dot(weatherData, {
+        Plot.dot(translatedData, {
             x: "precipitation",
             y: "wind",
-            fill: "weather",
+            fill: "weatherFr",
             r: 3,
             opacity: 0.6,
         }),
