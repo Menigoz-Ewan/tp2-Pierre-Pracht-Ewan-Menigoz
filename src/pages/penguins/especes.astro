@@ -1,0 +1,81 @@
+﻿---
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "../../components/PlotFigure.astro";
+import penguinsData from "../../data/penguins.json";
+import Layout from "../../layouts/Layout.astro";
+
+const filteredPenguins = penguinsData.map((p) => ({
+    species: p.species,
+}));
+
+const barOptions = {
+    title: "Répartition par espèce",
+    subtitle: "Nombre total d'individus recensés",
+    ariaLabel:
+        "Diagramme en barres montrant la quantité de pingouins par espèce.",
+    x: { label: "Espèce" },
+    y: { label: "↑ Nombre d'individus" },
+    color: {
+        domain: ["Adelie", "Gentoo", "Chinstrap"],
+        range: ["#570df8", "#f000b8", "#37cdbe"],
+    },
+    marks: [
+        Plot.barY(
+            filteredPenguins,
+            Plot.groupX({ y: "count" }, { x: "species", fill: "species" }),
+        ),
+        Plot.ruleY([0]),
+    ],
+};
+---
+
+<Layout>
+    <div style="margin-bottom: 1.5rem;">
+        <a
+            href="/"
+            style="text-decoration: none; color: #3182ce; font-weight: bold; font-size: 0.95rem;"
+            >← Retour à la page d'accueil</a
+        >
+    </div>
+
+    <h1
+        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
+    >
+        Espèces
+    </h1>
+
+    <nav class="flex justify-center gap-4 mb-12">
+        <a href="/penguins/species/Adelie" class="btn btn-sm btn-primary">Adélie</a>
+        <a href="/penguins/species/Chinstrap" class="btn btn-sm btn-accent">Chinstrap</a>
+        <a href="/penguins/species/Gentoo" class="btn btn-sm btn-secondary">Gentoo</a>
+    </nav>
+
+    <figure
+        style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"
+    >
+        <PlotFigure options={barOptions} />
+        <figcaption
+            style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
+        >
+            Ce diagramme en barres verticales indique le nombre total
+            d'individus recensés pour chaque espèce de manchots. Cliquez sur les
+            boutons ci-dessus pour explorer les caractéristiques de chaque
+            espèce.
+        </figcaption>
+    </figure>
+
+    <div
+        style="display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
+    >
+        <a
+            href="/penguins/biometrie"
+            style="text-decoration: none; color: #4a5568; font-weight: bold;"
+            >← Article précédent</a
+        >
+        <a
+            href="/penguins/iles"
+            style="text-decoration: none; color: #3182ce; font-weight: bold;"
+            >Article suivant →</a
+        >
+    </div>
+</Layout>
