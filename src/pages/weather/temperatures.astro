@@ -1,0 +1,77 @@
+---
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "../../components/PlotFigure.astro";
+import weatherData from "../../data/weather.json";
+import Layout from "../../layouts/Layout.astro";
+
+const parsed = weatherData.map((d) => ({
+    ...d,
+    date: new Date(d.date),
+}));
+
+const tempOptions = {
+    title: "Températures quotidiennes à Seattle",
+    subtitle: "Températures maximales et minimales (2012–2015)",
+    ariaLabel: "Graphique en ligne des températures max et min sur la durée.",
+    x: { label: "Date →" },
+    y: { label: "↑ Température (°C)" },
+    color: {
+        domain: ["temp_max", "temp_min"],
+        range: ["#f000b8", "#570df8"],
+        legend: true,
+    },
+    marks: [
+        Plot.line(parsed, {
+            x: "date",
+            y: "temp_max",
+            stroke: "#f000b8",
+            strokeWidth: 1.5,
+        }),
+        Plot.line(parsed, {
+            x: "date",
+            y: "temp_min",
+            stroke: "#570df8",
+            strokeWidth: 1.5,
+        }),
+    ],
+};
+---
+
+<Layout>
+    <div style="margin-bottom: 1.5rem;">
+        <a
+            href="/weather"
+            style="text-decoration: none; color: #3182ce; font-weight: bold; font-size: 0.95rem;"
+            >← Retour à la Météo</a
+        >
+    </div>
+
+    <h1
+        style="text-align: center; margin-bottom: 2rem; font-size: 2rem; font-weight: bold;"
+    >
+        Températures quotidiennes
+    </h1>
+
+    <figure
+        style="display: flex; flex-direction: column; align-items: center; gap: 1rem;"
+    >
+        <PlotFigure options={tempOptions} />
+        <figcaption
+            style="max-width: 700px; text-align: center; font-size: 0.95rem; color: #555; line-height: 1.5;"
+        >
+            Ce graphique en ligne retrace l'évolution des températures maximales
+            (rose) et minimales (violet) mesurées chaque jour à Seattle entre
+            2012 et 2015.
+        </figcaption>
+    </figure>
+
+    <div
+        style="display: flex; justify-content: flex-end; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;"
+    >
+        <a
+            href="/weather/types"
+            style="text-decoration: none; color: #3182ce; font-weight: bold;"
+            >Article suivant →</a
+        >
+    </div>
+</Layout>
