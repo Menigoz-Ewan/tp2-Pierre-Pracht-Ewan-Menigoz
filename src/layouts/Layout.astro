@@ -62,31 +62,6 @@ import "../styles/global.css";
 				}
 			}
 
-			nav {
-				background-color: white;
-				padding: 1.5rem;
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-				display: flex;
-				justify-content: center;
-				gap: 3rem;
-				border-bottom: 3px solid #84c5f4;
-			}
-
-			nav a {
-				text-decoration: none;
-				color: #243b53;
-				font-weight: 800;
-				font-size: 1.1rem;
-				transition:
-					color 0.3s,
-					transform 0.3s;
-			}
-
-			nav a:hover {
-				color: #d64545;
-				transform: translateY(-2px);
-			}
-
 			main {
 				max-width: 900px;
 				margin: 3rem auto;
@@ -96,7 +71,7 @@ import "../styles/global.css";
 				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 				width: 90%;
 				box-sizing: border-box;
-				flex: 1; /* Permet au main de s'étirer et de repousser le footer tout en bas */
+				flex: 1;
 			}
 		</style>
 	</head>
@@ -104,12 +79,105 @@ import "../styles/global.css";
 		<div class="shape shape-1"></div>
 		<div class="shape shape-2"></div>
 
-		<nav>
-			<a href="/">Accueil</a>
-			<a href="/biometrie">Biométrie</a>
-			<a href="/especes">Espèces</a>
-			<a href="/iles">Îles</a>
-		</nav>
+		<div class="navbar bg-base-100 shadow-sm px-4 sticky top-0 z-50">
+			<div class="navbar-start">
+				<a href="/" class="btn btn-ghost text-xl font-extrabold"
+					>🐧 DataViz TP2</a
+				>
+			</div>
+			<div class="navbar-center hidden lg:flex">
+				<ul class="menu menu-horizontal px-1 gap-1">
+					<li><a href="/" class="font-semibold">Accueil</a></li>
+					<li>
+						<details>
+							<summary class="font-semibold">Pingouins</summary>
+							<ul
+								class="bg-base-100 rounded-box z-10 w-48 shadow-md p-2"
+							>
+								<li>
+									<a href="/penguins/biometrie">Biométrie</a>
+								</li>
+								<li><a href="/penguins/especes">Espèces</a></li>
+								<li><a href="/penguins/iles">Îles</a></li>
+								<li><a href="/penguins/slider">Slider</a></li>
+							</ul>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary class="font-semibold">Pizzas</summary>
+							<ul
+								class="bg-base-100 rounded-box z-10 w-48 shadow-md p-2"
+							>
+								<li><a href="/pizzas">Vue d'ensemble</a></li>
+							</ul>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary class="font-semibold">Météo</summary>
+							<ul
+								class="bg-base-100 rounded-box z-10 w-48 shadow-md p-2"
+							>
+								<li><a href="/weather">Vue d'ensemble</a></li>
+							</ul>
+						</details>
+					</li>
+				</ul>
+			</div>
+			<div class="navbar-end">
+				<div class="dropdown dropdown-end lg:hidden">
+					<div
+						tabindex="0"
+						role="button"
+						class="btn btn-ghost btn-circle"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-5 w-5"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16M4 18h7"></path>
+						</svg>
+					</div>
+					<ul
+						tabindex="0"
+						class="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 shadow p-2"
+					>
+						<li><a href="/">Accueil</a></li>
+						<li>
+							<span class="menu-title">Pingouins</span>
+							<ul>
+								<li>
+									<a href="/penguins/biometrie">Biométrie</a>
+								</li>
+								<li><a href="/penguins/especes">Espèces</a></li>
+								<li><a href="/penguins/iles">Îles</a></li>
+								<li><a href="/penguins/slider">Slider</a></li>
+							</ul>
+						</li>
+						<li>
+							<span class="menu-title">Pizzas</span>
+							<ul>
+								<li><a href="/pizzas">Vue d'ensemble</a></li>
+							</ul>
+						</li>
+						<li>
+							<span class="menu-title">Météo</span>
+							<ul>
+								<li><a href="/weather">Vue d'ensemble</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
 		<main>
 			<slot />
